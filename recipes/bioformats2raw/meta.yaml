@@ -1,0 +1,41 @@
+
+{% set name = "bioformats2raw" %}
+{% set version = "0.9.4" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  
+  url: https://github.com/glencoesoftware/{{ name }}/releases/download/v{{ version
+    }}/{{ name }}-{{ version }}.zip
+  sha256: 855e13599df9643f8abdc861e7bada1f3e4e32cc519f684036b9581819eb9319
+
+build:
+  number: 0
+
+requirements:
+  run:
+    - openjdk
+    - blos
+
+test:
+  commands:
+    - bioformats2raw a.fake output.zarr
+
+about:
+  home: https://www.glencoesoftware.com/
+  summary: 'Java application to convert image file formats, including .mrxs, to an intermediate Zarr structure compatible with the OME-NGFF specification.'
+  description: |
+    Java application to convert image file formats, including .mrxs, to an intermediate Zarr structure compatible with the OME-NGFF specification.
+  license: GPL-2.0-or-later
+  license_family: GPL2
+  license_file: LICENSE.txt
+  doc_url: https://github.com/glencoesoftware/bioformats2raw/blob/master/README.md
+  dev_url: https://github.com/glencoesoftware/bioformats2raw/
+
+extra:
+  recipe-maintainers:
+    - CaroAMN
+    
